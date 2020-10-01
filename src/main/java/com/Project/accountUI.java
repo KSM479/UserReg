@@ -1,46 +1,116 @@
 package com.Project;
+import java.time.LocalDate;
 import java.util.*;
-public class accountUI  {
+
+import com.Project.User;
+import com.Project.UserDAO;
+
+public class accountUI {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		User1();
+		System.out.println("This is the Account sign up page.\n");
 		
+		System.out.println(" ******** \n");
+		
+		User new_user = new User();
+		Scanner scan = new Scanner(System.in);
+		
+		inputFirstName(new_user, scan);
+		inputLastName(new_user, scan);
+		inputEmailAddress(new_user, scan);
+		inputPassword(new_user, scan);
+		inputDay(new_user, scan);
+		inputMonth(new_user, scan);
+		inputYear(new_user, scan);
+		inputGender(new_user, scan);
+		
+		
+		System.out.println("******* \n "
+				+ "User created successfully!");
+		
+	    UserDAO users = new UserDAO();
+	    users.addUser(new_user);
+	    users.printUserInfo(new_user);
 	}
-	public static void User1() {
-		Scanner sc = new Scanner(System.in);
-		User user1 = new User();
-		System.out.println("First Name:");
-		String str = sc.nextLine();
-		user1.setFirstName(str);
-		System.out.println("Last Name:");
-		String last = sc.nextLine();
-		user1.setLastName(last);
-		System.out.println("Email");
-		String email = sc.nextLine();
-		user1.setEmail(email);
-		System.out.println("Password");
-		String password = sc.nextLine();
-		user1.setPassword(password);
-		System.out.println("Gender:");
-		String gender = sc.nextLine();
-		user1.setGender(gender);
-		System.out.println("BirthDate:");
-		System.out.println("Month:");
-		int month = sc.nextInt();
-		user1.setMonth(month);
-		System.out.println("Day:");
-		int day = sc.nextInt();
-		user1.setDay(day);
-		System.out.println("Year:");
-		int year= sc.nextInt();
-		user1.setYear(year);
-		
-		System.out.println("Name: "+user1.getFirstName()+" "+user1.getLastName());
-		System.out.println("Email: "+user1.getEmail());
-		System.out.println("Password: "+user1.getPassword());
-		System.out.println("BirthDate:"+user1.getMonth()+"/"+user1.getDay()+"/"+user1.getYear());
-		System.out.println("Gender:"+user1.getGender());
+	
+	private static void inputFirstName(User new_user, Scanner scan) {
+		System.out.println("Please enter your first name:");
+		while (true) {
+			String s = scan.next();
+			new_user.setFirstName(s);
+			if (s.toLowerCase().equals(new_user.getFirstName())) {
+				break;
+			}
+			System.out.println("Please enter a valid first name: ");
+		}
+		System.out.println();
+	}
+	
+	private static void inputLastName(User new_user, Scanner scan) {
+		System.out.println("Please enter your Last name:");
+		while (true) {
+			String s = scan.next();
+			new_user.setLastName(s);
+			if (s.toLowerCase().equals(new_user.getLastName())) {
+				break;
+			}
+			System.out.println("Please enter a valid Last name: ");
+		}
+		System.out.println();
+	}
+	
+	private static void inputEmailAddress(User new_user, Scanner scan) {
+		System.out.println("Please enter your Email Address:");
+		while (true) {
+			String s = scan.next();
+			new_user.setEmail(s);
+			if (s.equals(new_user.getEmail())) {
+				break;
+			}
+			System.out.println("Please enter a valid Email Address");
+		}
+		System.out.println();
+	}
+	
+	private static void inputPassword(User new_user, Scanner scan) {
+		System.out.println("Please enter your Password:");
+		while (true) {
+			String s = scan.next();
+			new_user.setPassword(s);
+			if (s.equals(new_user.getPassword())) {
+				break;
+			}
+			System.out.println("Please enter a valid Password");
+		}
+		System.out.println();
+	}
+	private static void inputDay(User new_user, Scanner scan) {
+		int day = 0;
+		System.out.println("Please enter your birth year: ");
+		day = scan.nextInt();
+		new_user.setDay(day);
+	}
+	private static void inputMonth(User new_user, Scanner scan) {
+		int month = 0;
+		System.out.println("Please enter your birth year: ");
+		month = scan.nextInt();
+		new_user.setMonth(month);
+	}
+	private static void inputYear(User new_user, Scanner scan) {
+		int year = 0;
+		System.out.println("Please enter your birth year: ");
+		year = scan.nextInt();
+		new_user.setYear(year);
+	}
+	
+
+	
+	private static void inputGender(User new_user, Scanner scan) {
+		System.out.println("Please choose a gender: ");
+		String s = scan.next();
+		new_user.setGender(s);
+	
 	}
 
 }

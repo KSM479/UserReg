@@ -1,5 +1,8 @@
 package com.Project;
+
 import java.util.regex.Pattern;
+
+
 public class User {
 	private String Email;
 	private String Password;
@@ -9,18 +12,24 @@ public class User {
 	private int Day;
 	private int Year;
 	private String Gender;
-	
-	public User() {
-		this.Email = "example@gmail.com";
-		this.Password = "Password1!";
-		this.FirstName = "John";
-		this.LastName = "Doe";
-		this.Day = 1;
-		this.Month = 1;
-		this.Year = 1;
-		this.Gender = "male";
+public User() {
 		
 	}
+	
+	public User (String firstName, 
+		     String lastName, 
+		     String emailAddress, 
+		     String password,
+		     String gender,
+		     int Month, int Day, int Year) {
+	setFirstName(firstName);
+	setLastName(lastName);
+	setEmail(emailAddress);
+	setPassword(password);
+	setGender(gender);
+	setMonth(Month); setDay(Day); setYear(Year);
+}
+	
 
 	public String getEmail() {
 		return Email;
