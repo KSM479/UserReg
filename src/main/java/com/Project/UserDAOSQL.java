@@ -26,10 +26,10 @@ public class UserDAOSQL {
 	            
 	             10, 10,1997);
 		printUserInfo();
-		deleteUser("lisa@gmail.com");
+		deleteUser("kalpan.emht@gmail.com");
 		printUserInfo();
-		changePassword("shuo@wang.com", "12345");
-		changePassword("shuo@wang.com", "DFE#dwe3#$sd");
+		changePassword("kalpan.mehta@gmail.com", "12345");
+		changePassword("kalpan.mehta@gmail.com", "Kalpan@12345");
 	}
 	
 	//Create / Insert a User
